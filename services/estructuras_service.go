@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/udistrital/atlas_externo_servicio/database"
-	"github.com/udistrital/atlas_externo_servicio/models"
+	"github.com/udistrital/atlas_mid/database"
+	"github.com/udistrital/atlas_mid/models"
 )
 
 type elasticsearchEstructuraGetResponse struct {

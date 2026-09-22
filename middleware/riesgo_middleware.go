@@ -9,7 +9,7 @@ import (
 
 	"github.com/beego/beego/v2/core/logs"
 	beecontext "github.com/beego/beego/v2/server/web/context"
-	"github.com/udistrital/atlas_externo_servicio/services"
+	"github.com/udistrital/atlas_mid/services"
 )
 
 func RiskMiddleware(

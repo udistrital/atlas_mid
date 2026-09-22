@@ -5,7 +5,7 @@ import (
 
 	"github.com/beego/beego/v2/server/web"
 
-	"github.com/udistrital/atlas_externo_servicio/services"
+	"github.com/udistrital/atlas_mid/services"
 )
 
 // ProcesoController operations for Proceso

@@ -1,4 +1,4 @@
-module github.com/udistrital/atlas_externo_servicio
+module github.com/udistrital/atlas_mid
 
 go 1.25.0
 

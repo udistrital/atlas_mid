@@ -8,8 +8,8 @@ import (
 	"github.com/beego/beego/v2/server/web"
 
 	"github.com/beego/beego/v2/core/logs"
-	"github.com/udistrital/atlas_externo_servicio/middleware"
-	"github.com/udistrital/atlas_externo_servicio/services"
+	"github.com/udistrital/atlas_mid/middleware"
+	"github.com/udistrital/atlas_mid/services"
 )
 
 type SecurityController struct {

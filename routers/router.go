@@ -6,7 +6,7 @@ package routers
 
 import (
 	"github.com/beego/beego/v2/server/web"
-	"github.com/udistrital/atlas_externo_servicio/controllers"
+	"github.com/udistrital/atlas_mid/controllers"
 )
 
 func init() {

@@ -1,0 +1,584 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Atlas Externo Servicio API",
+        "description": "API de consulta para Atlas Externo\n",
+        "version": "1.0.0",
+        "contact": {}
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/aspectos/": {
+            "get": {
+                "tags": [
+                    "aspectos"
+                ],
+                "description": "consultar aspectos\n\u003cbr\u003e",
+                "operationId": "AspectoController.GetAll",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "caracteristica_id",
+                        "description": "ID de la característica",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Aspecto"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "error consultando aspectos"
+                    }
+                }
+            }
+        },
+        "/aspectos/{id}": {
+            "get": {
+                "tags": [
+                    "aspectos"
+                ],
+                "description": "consultar aspecto por id\n\u003cbr\u003e",
+                "operationId": "AspectoController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "ID del aspecto",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Aspecto"
+                        }
+                    },
+                    "404": {
+                        "description": "aspecto no encontrado"
+                    },
+                    "500": {
+                        "description": "error consultando aspecto"
+                    }
+                }
+            }
+        },
+        "/caracteristicas/": {
+            "get": {
+                "tags": [
+                    "caracteristicas"
+                ],
+                "description": "consultar características\n\u003cbr\u003e",
+                "operationId": "CaracteristicaController.GetAll",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "factor_id",
+                        "description": "ID del factor",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Caracteristica"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "error consultando características"
+                    }
+                }
+            }
+        },
+        "/caracteristicas/{id}": {
+            "get": {
+                "tags": [
+                    "caracteristicas"
+                ],
+                "description": "consultar característica por id\n\u003cbr\u003e",
+                "operationId": "CaracteristicaController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "ID de la característica",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Caracteristica"
+                        }
+                    },
+                    "404": {
+                        "description": "característica no encontrada"
+                    },
+                    "500": {
+                        "description": "error consultando característica"
+                    }
+                }
+            }
+        },
+        "/estructuras/{id}": {
+            "get": {
+                "tags": [
+                    "estructuras"
+                ],
+                "description": "consultar estructura por id\n\u003cbr\u003e",
+                "operationId": "EstructuraController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "ID de la estructura",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Estructura"
+                        }
+                    },
+                    "404": {
+                        "description": "estructura no encontrada"
+                    },
+                    "500": {
+                        "description": "error consultando estructura"
+                    }
+                }
+            }
+        },
+        "/estructuras/{id}/datos": {
+            "get": {
+                "tags": [
+                    "estructuras"
+                ],
+                "description": "consultar datos paginados de una estructura\n\u003cbr\u003e",
+                "operationId": "EstructuraController.GetDatos",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "ID de la estructura",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "description": "Página",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "page_size",
+                        "description": "Tamaño de página",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "query",
+                        "name": "ordering",
+                        "description": "Campo de ordenamiento",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/services.DatosEstructuraResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "estructura no encontrada"
+                    },
+                    "500": {
+                        "description": "error consultando datos"
+                    }
+                }
+            }
+        },
+        "/factores/": {
+            "get": {
+                "tags": [
+                    "factores"
+                ],
+                "description": "consultar factores\n\u003cbr\u003e",
+                "operationId": "FactorController.GetAll",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "proceso_id",
+                        "description": "ID del proceso",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Factor"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "error consultando factores"
+                    }
+                }
+            }
+        },
+        "/factores/{id}": {
+            "get": {
+                "tags": [
+                    "factores"
+                ],
+                "description": "consultar factor por id\n\u003cbr\u003e",
+                "operationId": "FactorController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "ID del factor",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Factor"
+                        }
+                    },
+                    "404": {
+                        "description": "factor no encontrado"
+                    },
+                    "500": {
+                        "description": "error consultando factor"
+                    }
+                }
+            }
+        },
+        "/procesos/": {
+            "get": {
+                "tags": [
+                    "procesos"
+                ],
+                "description": "consultar procesos\n\u003cbr\u003e",
+                "operationId": "ProcesoController.GetAll",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Proceso"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "error consultando procesos"
+                    }
+                }
+            }
+        },
+        "/procesos/{id}": {
+            "get": {
+                "tags": [
+                    "procesos"
+                ],
+                "description": "consultar proceso por id\n\u003cbr\u003e",
+                "operationId": "ProcesoController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "ID del proceso",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Proceso"
+                        }
+                    },
+                    "404": {
+                        "description": "proceso no encontrado"
+                    },
+                    "500": {
+                        "description": "error consultando proceso"
+                    }
+                }
+            }
+        },
+        "/security/turnstile/verify": {
+            "post": {
+                "tags": [
+                    "security"
+                ],
+                "description": "valida un token Cloudflare Turnstile\n\u003cbr\u003e",
+                "operationId": "SecurityController.VerifyTurnstile",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Token Turnstile",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/turnstileVerificationRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/map[string]interface{}"
+                        }
+                    },
+                    "400": {
+                        "description": "token inválido"
+                    },
+                    "429": {
+                        "description": "demasiados intentos"
+                    },
+                    "503": {
+                        "description": "Turnstile no disponible"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "map[string]interface{}": {
+            "title": "map[string]interface{}",
+            "type": "object"
+        },
+        "models.Aspecto": {
+            "title": "Aspecto",
+            "type": "object",
+            "properties": {
+                "activo": {
+                    "type": "boolean"
+                },
+                "caracteristica_id": {
+                    "type": "string"
+                },
+                "estructuras_evidencias": {
+                    "$ref": "#/definitions/map[string][274.0xc0003d6690.false]"
+                },
+                "fecha_creacion": {
+                    "type": "string"
+                },
+                "fecha_modificacion": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "nombre": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Caracteristica": {
+            "title": "Caracteristica",
+            "type": "object",
+            "properties": {
+                "activo": {
+                    "type": "boolean"
+                },
+                "aspectos": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "calificacion": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "descripcion": {
+                    "type": "string"
+                },
+                "factor_id": {
+                    "type": "string"
+                },
+                "fecha_creacion": {
+                    "type": "string"
+                },
+                "fecha_modificacion": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "nombre": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Estructura": {
+            "title": "Estructura",
+            "type": "object",
+            "properties": {
+                "activo": {
+                    "type": "boolean"
+                },
+                "aspecto_id": {
+                    "type": "string"
+                },
+                "campos": {
+                    "$ref": "#/definitions/map[string][1366.0xc0003d6900.false]"
+                },
+                "data": {
+                    "$ref": "#/definitions/map[string][1422.0xc0003d6990.false]"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "nombre": {
+                    "type": "string"
+                },
+                "tipo_evidencia": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Factor": {
+            "title": "Factor",
+            "type": "object",
+            "properties": {
+                "activo": {
+                    "type": "boolean"
+                },
+                "calificacion": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "caracteristicas": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "descripcion": {
+                    "type": "string"
+                },
+                "fecha_creacion": {
+                    "type": "string"
+                },
+                "fecha_modificacion": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "nombre": {
+                    "type": "string"
+                },
+                "proceso_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Proceso": {
+            "title": "Proceso",
+            "type": "object",
+            "properties": {
+                "activo": {
+                    "type": "boolean"
+                },
+                "dependencia_responsable": {
+                    "type": "string"
+                },
+                "descripcion": {
+                    "type": "string"
+                },
+                "factores": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "fecha_creacion": {
+                    "type": "string"
+                },
+                "fecha_fin": {
+                    "type": "string"
+                },
+                "fecha_inicio": {
+                    "type": "string"
+                },
+                "fecha_modificacion": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "nombre": {
+                    "type": "string"
+                },
+                "objetivo": {
+                    "type": "string"
+                }
+            }
+        },
+        "services.DatosEstructuraResponse": {
+            "title": "DatosEstructuraResponse",
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "page": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "page_size": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "results": {
+                    "$ref": "#/definitions/map[string][7613.0xc0004134a0.false]"
+                }
+            }
+        },
+        "turnstileVerificationRequest": {
+            "title": "turnstileVerificationRequest",
+            "type": "object"
+        }
+    },
+    "tags": [
+        {
+            "name": "procesos",
+            "description": "ProcesoController operations for Proceso\n"
+        }
+    ]
+}

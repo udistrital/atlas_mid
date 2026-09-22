@@ -5,11 +5,11 @@ import (
 	"github.com/beego/beego/v2/server/web"
 	"github.com/beego/beego/v2/server/web/filter/cors"
 
-	"github.com/udistrital/atlas_externo_servicio/database"
-	_ "github.com/udistrital/atlas_externo_servicio/routers"
+	"github.com/udistrital/atlas_mid/database"
+	_ "github.com/udistrital/atlas_mid/routers"
 
-	"github.com/udistrital/atlas_externo_servicio/middleware"
-	"github.com/udistrital/atlas_externo_servicio/services"
+	"github.com/udistrital/atlas_mid/middleware"
+	"github.com/udistrital/atlas_mid/services"
 	apistatus "github.com/udistrital/utils_oas/v2/apiStatusLib"
 	"github.com/udistrital/utils_oas/v2/auditoria"
 	customerrorv2 "github.com/udistrital/utils_oas/v2/customerror"
