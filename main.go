@@ -31,9 +31,7 @@ func init() {
 		panic(err)
 	}
 
-	logs.Info(
-		"conexión a Elasticsearch establecida",
-	)
+	logs.Info("conexión a Elasticsearch establecida")
 	// Turnstile
 	if err :=
 		services.
